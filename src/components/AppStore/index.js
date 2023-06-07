@@ -1,3 +1,8 @@
+import {Component} from 'react'
+import './index.css'
+import AppItem from '../AppItem'
+import TabItem from '../TabItem'
+
 const tabsList = [
   {tabId: 'SOCIAL', displayText: 'Social'},
   {tabId: 'GAMES', displayText: 'Games'},
@@ -288,3 +293,58 @@ const appsList = [
 ]
 
 // Write your code here
+
+class AppStore extends Component {
+  state = {tabId: tabsList[0].tabId, searchInput: ''}
+
+  tabIdUpdate = id => {
+    console.log(id)
+    this.setState({tabId: id})
+  }
+
+  updateSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
+  render() {
+    const {tabId, searchInput} = this.state
+
+    const searchfilterd = appsList.filter(each =>
+      each.appName.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+
+    const filteredAppItems = searchfilterd.filter(
+      each => each.category === tabId,
+    )
+    console.log(filteredAppItems)
+
+    return (
+      <div>
+        <div>
+          <input
+            type="search"
+            placeholder="Search"
+            onChange={this.updateSearchInput}
+            value={searchInput}
+          />
+          <ul className="tabs-container">
+            {tabsList.map(each => (
+              <TabItem
+                tabList={each}
+                key={each.tabId}
+                tabIdUpdate={this.tabIdUpdate}
+              />
+            ))}
+          </ul>
+          <ul className="apps-container">
+            {filteredAppItems.map(each => (
+              <AppItem appList={each} key={each.appId} />
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default AppStore
