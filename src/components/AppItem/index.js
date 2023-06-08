@@ -6,7 +6,7 @@ const AppItem = props => {
   const {appList} = props
 
   return (
-    <li>
+    <li className="app-list-container">
       <img className="img-logo" src={appList.imageUrl} alt={appList.appName} />
       <p>{appList.appName}</p>
     </li>

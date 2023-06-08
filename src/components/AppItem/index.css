@@ -1,5 +1,24 @@
 /* Write your CSS here */
 .img-logo {
-  height: 40px;
-  width: 40px;
+  height: 80px;
+  width: 80px;
+}
+
+.app-list-container {
+  list-style-type: none;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-family: 'Bree Sreef';
+  font-size: 16px;
+  font-weight: 600;
+  marign-top: 10px;
 }

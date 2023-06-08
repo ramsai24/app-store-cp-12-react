@@ -319,23 +319,36 @@ class AppStore extends Component {
     console.log(filteredAppItems)
 
     return (
-      <div>
-        <div>
-          <input
-            type="search"
-            placeholder="Search"
-            onChange={this.updateSearchInput}
-            value={searchInput}
-          />
-          <ul className="tabs-container">
-            {tabsList.map(each => (
-              <TabItem
-                tabList={each}
-                key={each.tabId}
-                tabIdUpdate={this.tabIdUpdate}
-              />
-            ))}
-          </ul>
+      <div className="app-container">
+        <div className="bg-container">
+          <h1 className="heading">App Store</h1>
+          <div className="search-container">
+            <input
+              className="inputEl"
+              type="search"
+              placeholder="Search"
+              onChange={this.updateSearchInput}
+              value={searchInput}
+            />
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/app-store/app-store-search-img.png"
+              alt="search icon"
+              className="search-logo"
+            />
+          </div>
+          <div>
+            <ul className="tabs-container">
+              {tabsList.map(each => (
+                <TabItem
+                  tabList={each}
+                  key={each.tabId}
+                  tabIdUpdate={this.tabIdUpdate}
+                  isActive={tabId === each.tabId}
+                />
+              ))}
+            </ul>
+          </div>
+
           <ul className="apps-container">
             {filteredAppItems.map(each => (
               <AppItem appList={each} key={each.appId} />

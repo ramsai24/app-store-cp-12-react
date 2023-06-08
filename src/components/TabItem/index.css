@@ -1,1 +1,20 @@
 /* Write your CSS here */
+
+.tab-item {
+  list-style-type: none;
+  margin-left: 12px;
+  margin-bottom: 0px;
+}
+
+.btn {
+  padding: 12px;
+  background-color: transparent;
+  border: none;
+  color: #7b8794;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.active-tab-btn {
+  border-bottom: 3px solid #2563eb;
+}
